@@ -1,0 +1,501 @@
+# ============================
+# .NET / C# Specific
+# ============================
+
+## Build artifacts
+bin/
+obj/
+out/
+publish/
+*.dll
+*.exe
+*.pdb
+*.so
+*.dylib
+*.cache
+*.nupkg
+*.snupkg
+*.user
+*.suo
+*.sln.docstates
+*.swp
+*.tmp
+*.temp
+
+## Visual Studio / Rider specific
+.vs/
+.idea/
+.vscode/
+*.csproj.user
+*.proj.user
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pidb
+*.psess
+*.vsp
+*.vspx
+*.sap
+*.loadtest
+*.webtest
+*.testsettings
+*.vsmdi
+*.sln.ide
+*.sln.GhostDoc.xml
+*.sln.orig
+*.sln.ide.orig
+*.sqlproj.user
+
+## Rider specific (JetBrains)
+*.resharper
+*.DotSettings.user
+*.Rider
+_ReSharper*/
+_decompiled*/
+*.pidb
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+## Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.coveragexml.*
+*.htmlcoverage
+
+## Logs
+logs/
+*.log
+*.txt
+*.log.*
+log*.txt
+eventlog*.txt
+*.csv
+
+## Database files
+*.db
+*.sqlite
+*.sqlite3
+*.mdb
+*.ldb
+*.db-shm
+*.db-wal
+*.sdf
+*.mdf
+*.ldf
+*.sqlite-journal
+*.db3
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ============================
+# Discord Bot Specific
+# ============================
+
+## Configuration (with sensitive data) - NUNCA subir
+appsettings.Development.json
+appsettings.Staging.json
+appsettings.Production.json
+appsettings.json
+*.secrets.json
+*.private.json
+*.development.json
+**/appsettings.*.json
+Config/appsettings.json
+
+## Credentials and tokens
+*.token
+*.key
+*.pem
+*.crt
+*.cer
+*.pfx
+*.p12
+*.secret
+*.env
+.env
+.env.*
+*.credentials
+*.credentials.*
+*credentials.json
+*client_secret*.json
+*service_account*.json
+
+## Logs from your bot
+economy.log
+economylogs.txt
+discord.log
+*.bot.log
+error.log
+debug.log
+
+## Database from your project
+economia.db
+economia.db-journal
+economia.db-shm
+economia.db-wal
+*.db-shm
+*.db-wal
+
+# ============================
+# OS Generated Files
+# ============================
+
+## Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.ini
+*.pid
+*.stackdump
+*.DS_Store
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+## Linux
+*~
+.directory
+*.swp
+*.swo
+*/.directory
+*.tmp
+*.temp
+
+## Mac OS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# ============================
+# Package Managers
+# ============================
+
+## NuGet
+packages/
+*.nupkg
+*.snupkg
+nuget.exe
+*.nuget.props
+*.nuget.targets
+packages.config
+*.nuget.manifest
+*.nuget.manifest.*
+.nuget/
+.nuget/
+.project.lock.json
+
+## Node.js (if you have any frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.pnpm-debug.log*
+
+## Python (if you have any scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+pyrightconfig.json
+*.py.orig
+
+# ============================
+# Docker
+# ============================
+
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+*.dockerignore
+.docker/
+docker/
+
+# ============================
+# IDE / Editor Specific
+# ============================
+
+## Visual Studio Code
+.vscode/
+*.code-workspace
+*.code-snippets
+.vscode-test/
+
+## Visual Studio
+*.vspscc
+*.vssscc
+*.vssettings
+*.vscmd
+*.vsmdi
+*.vstemplate
+*.vst
+*.vspx
+*.vsp
+*.testsettings
+*.settings
+*.publishproj
+*.publishsettings
+*.pubxml
+*.pubxml.user
+*.azpubxml
+*.azpublishsettings
+
+## Visual Studio for Mac
+*.userprefs
+*.mono
+*.pidb
+*.psess
+
+## JetBrains
+.idea/
+*.sln.iml
+*.csproj.iml
+*.iws
+*.ipr
+*.ncrunchproject
+*.ncrunch
+*.ncrunch.sln
+*.ncrunchproject.user
+*.crunchsettings
+*.crunchsettings.user
+
+# ============================
+# CI/CD & Build Tools
+# ============================
+
+## Azure Pipelines
+*.azurepipelines/
+*.azure-pipelines/
+*.yml.azure-pipelines
+*.yaml.azure-pipelines
+*.azure-pipelines.yml
+*.azure-pipelines.yaml
+
+## GitHub Actions
+.github/
+*.github/
+*.workflows/
+
+## SonarQube
+.sonarqube/
+.sonar/
+sonar-project.properties
+*.sonarqube
+
+## Jenkins
+.jenkins/
+*.jenkins
+*.Jenkinsfile
+
+## TeamCity
+.teamcity/
+*.teamcity/
+
+## AppVeyor
+.appveyor/
+*.appveyor.yml
+*.appveyor.yaml
+
+# ============================
+# Documentation & Temp Files
+# ============================
+
+docs/_build/
+docs/api/
+docs/obj/
+*.docx
+*.doc
+*.pdf
+*.xlsx
+*.xls
+*.pptx
+*.ppt
+*.odt
+*.ods
+*.odp
+
+# ============================
+# Profiling & Diagnostics
+# ============================
+
+*.profiler
+*.etl
+*.etlx
+*.diagsession
+*.vsdiag
+*.perfview
+*.trace
+*.speedscope.json
+
+# ============================
+# Misc
+# ============================
+
+## Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*.patch
+*.diff
+
+## Temporary files
+*.tmp
+*.temp
+*.cache
+*.cached
+*~
+*.pid
+*.lock
+*.lock.json
+
+## Compression
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.tgz
+*.bz2
+*.xz
+
+## Certificate & security
+*.pfx
+*.p12
+*.snk
+*.key
+*.cert
+*.cer
+*.crt
+*.pem
+*.der
+*.pkcs12
+*.jks
+*.keystore
+*.truststore
+
+# ============================
+# Project Specific
+# ============================
+
+## Ignore generated images only
+*.generated.png
+*.generated.jpg
+*.generated.jpeg
+*.generated.gif
+
+## Docs (if they're autogenerated)
+docs/
+*.docx
+*.doc
+*.pdf
+
+## Exclude all .txt except specific ones
+*.txt
+!README.txt
+!README.md
+!LICENSE.txt
+!LICENSE.md
+
+# ============================
+# Keep important files
+# ============================
+
+## Keep .gitignore and .gitattributes
+!.gitignore
+!.gitattributes
+
+## Keep documentation
+!*.md
+!*.txt
+!LICENSE*
+!README*
+
+## Keep project files
+!*.csproj
+!*.sln
+
+## Keep all source code
+!*.cs
+
+## Keep Config folder structure (but not sensitive files)
+!Config/
+Config/*.json
+!Config/appsettings.template.json
+!Config/*.cs
+
+## Keep Models, Commands, Services, etc.
+!Models/
+!Commands/
+!Services/
+!Repositories/
+!Events/
+!Data/
+!Models/**/*.cs
+!Commands/**/*.cs
+!Services/**/*.cs
+!Repositories/**/*.cs
+!Events/**/*.cs
+!Data/**/*.cs
+
+# ============================
+# Images - ¡SÍ SE SUBEN!
+# ============================
+
+## ¡LAS IMÁGENES SE SUBEN! (excepto las generadas)
+!images/
+!images/**/*
+!*.png
+!*.jpg
+!*.jpeg
+!*.gif
+!*.bmp
+!*.ico
+!*.svg
+!*.webp
+
+## Específicamente mantener esta imagen
+!images/NPCAlexander.png
