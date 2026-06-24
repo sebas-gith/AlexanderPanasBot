@@ -153,7 +153,7 @@ namespace Alexander.Commands
                     await FollowupAsync($"❌ El usuario **{user.Username}** no tiene una cuenta activa.", ephemeral: true);
                     return;
                 }
-                if(Context.User.Id == 642330520868487218)
+                if (Context.User.Id == 642330520868487218)
                 {
                     await FollowupAsync($"❌ El usuario **{user.Username}** no tiene permisos suficientes. Por palomo : <", ephemeral: true);
                     return;
@@ -323,6 +323,32 @@ namespace Alexander.Commands
             {
                 Console.WriteLine($"Error en Top: {ex.Message}");
                 await FollowupAsync("❌ Ocurrió un error al obtener el top.", ephemeral: true);
+            }
+        }
+
+        [SlashCommand("daily", "Reclama tus 70 SmashCoins diarios")]
+        public async Task Daily()
+        {
+            await DeferAsync(ephemeral: true);
+
+            var result = await _economyService.ClaimDailyAsync(Context.User.Id);
+
+            if (result.Success)
+            {
+                var embed = new EmbedBuilder()
+                    .WithTitle("🏺 ¡Botín Diario!")
+                    .WithDescription($"Se te ha dado **70 SmashCoins** 🪙.")
+                    .AddField("💰 Nuevo Balance", $"{result.NewBalance:N0} 🪙", true)
+                    .WithCurrentTimestamp()
+                    .WithColor(Color.Green)
+                    .WithFooter("¡Vuelve mañana por más!")
+                    .Build();
+
+                await FollowupAsync(embed: embed);
+            }
+            else
+            {
+                await FollowupAsync($"❌ {result.Message}", ephemeral: true);
             }
         }
     }

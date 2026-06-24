@@ -90,5 +90,29 @@ namespace Alexander.Services
             var profile = await _repository.GetByUserIdAsync(userId);
             return profile != null;
         }
+        public async Task<(bool Success, string Message, float NewBalance)> ClaimDailyAsync(ulong userId)
+        {
+            var profile = await _repository.GetByUserIdAsync(userId);
+
+            if (profile == null)
+            {
+                return (false, "¡Aún no tienes dónde guardar tus monedas! Usa `/economy openaccount` para crear tu cuenta antes de reclamar recompensas.", 0);
+            }
+
+            if (DateTime.UtcNow.Date <= profile.LastDailyClaim.Date)
+            {
+                var nextClaim = profile.LastDailyClaim.Date.AddDays(1);
+                var timeRemaining = nextClaim - DateTime.UtcNow;
+
+                return (false, $"Ya has reclamado tu recompensa hoy. Vuelve en **{timeRemaining.Hours}h y {timeRemaining.Minutes}m**.", profile.SmashCoins);
+            }
+
+            profile.SmashCoins += 70;
+            profile.LastDailyClaim = DateTime.UtcNow;
+
+            await _repository.UpdateAsync(profile);
+
+            return (true, string.Empty, profile.SmashCoins);
+        }
     }
 }

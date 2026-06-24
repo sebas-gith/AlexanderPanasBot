@@ -33,8 +33,8 @@ namespace Alexander.Commands
             int eventId = await _bettingService.CreateEventAsync(description, Context.User.Id);
 
             var embed = new EmbedBuilder()
-                .WithTitle("📢 ¡NUEVA APUESTA ABIERTA!")
-                .WithDescription($"**Evento:** {description}\n**Creado por:** {Context.User.Mention}")
+                .WithTitle("# 📢 ¡NUEVA APUESTA ABIERTA!")
+                .WithDescription($"**Evento:**  ## {description}\n**Creado por:** {Context.User.Mention}")
                 .WithColor(Color.Gold)
                 .WithFooter($"ID: {eventId} | Presiona un botón abajo para apostar")
                 .Build();
