@@ -26,6 +26,8 @@ namespace Alexander
                             .AddSingleton(new DiscordSocketClient(config))
                             .AddSingleton(x => new InteractionService(x.GetRequiredService<DiscordSocketClient>()))
                             .AddSingleton<InteractionHandlingService>()
+                            .AddSingleton<ActivityRewardService>()
+                            .AddSingleton<MentionHandlerService>()
                             .AddSingleton<CommandService>()
                             .AddSingleton<LoggingService>()
                             .AddSingleton<DiscordEventHandler>()
@@ -47,17 +49,23 @@ namespace Alexander
 
             var client = services.GetRequiredService<DiscordSocketClient>();
             var eventHandler = services.GetRequiredService<DiscordEventHandler>();
+            var activityRewardService = services.GetRequiredService<ActivityRewardService>();
+
+            
 
             var interactionHandler = services.GetRequiredService<InteractionHandlingService>();
+            var mentionHandler = services.GetRequiredService<MentionHandlerService>();
 
+            mentionHandler.Initialize();
             eventHandler.Initialize();
-
             await interactionHandler.InitializeAsync();
             using (var scope = services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<Alexander.Data.BotDbContext>();
                 db.Database.EnsureCreated();
             }
+            activityRewardService.Initialize();
+
             await client.LoginAsync(Discord.TokenType.Bot, token);
             await client.StartAsync();
             await Task.Delay(-1);

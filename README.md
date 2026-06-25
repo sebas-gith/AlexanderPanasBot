@@ -83,61 +83,6 @@ AlexanderPanasBot/
 │
 └── Program.cs               # Punto de entrada
 ```
-
----
-
-## 📊 Modelos de Datos
-
-### EconomyProfile
-```csharp
-public class EconomyProfile
-{
-    public ulong UserId { get; set; }      // Discord User ID
-    public float SmashCoins { get; set; }  // Saldo actual (default: 1000)
-}
-```
-
-### BetEvent
-```csharp
-public class BetEvent
-{
-    public int Id { get; set; }
-    public string Description { get; set; }
-    public ulong CreatorId { get; set; }
-    public bool IsClosed { get; set; }
-    public bool IsLocked { get; set; }
-    public bool? IsWinnerAFavor { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public List<BetTicket> Tickets { get; set; }
-}
-```
-
-### BetTicket
-```csharp
-public class BetTicket
-{
-    public int Id { get; set; }
-    public int BetEventId { get; set; }
-    public ulong UserId { get; set; }
-    public int Amount { get; set; }
-    public bool IsBetAFavor { get; set; }
-    public BetEvent BetEvent { get; set; }
-}
-```
-
-### AccountResult
-```csharp
-public class AccountResult
-{
-    public bool Success { get; set; }
-    public string Message { get; set; }
-    public EconomyProfile Profile { get; set; }
-    
-    public static AccountResult Ok(string message, EconomyProfile profile = null)
-    public static AccountResult Failure(string message)
-}
-```
-
 ---
 
 ## 🤖 Comandos Disponibles
@@ -150,6 +95,7 @@ public class AccountResult
 | `/economy transfer @usuario cantidad` | Transferir monedas | Todos |
 | `/economy top cantidad` | Ranking de usuarios | Todos |
 | `/economy addcoins @usuario cantidad` | Agregar monedas | Admins |
+| `/economy daily` | Reclamar recompensa botin diario | Todos |
 
 ### Apuestas
 | Comando | Descripción | Permisos |
