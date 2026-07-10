@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 
 namespace Alexander.Commands
 {
+    [Group("Admin", "Comando para los admins, los más duros del server")]
+    [DefaultMemberPermissions(GuildPermission.Administrator)]
     public class AdminCommand : InteractionModuleBase<SocketInteractionContext>
     {
         [SlashCommand("announcement", "Haz un anuncio al servidor")]

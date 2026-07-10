@@ -30,6 +30,7 @@
 
 - **Sistema de Economía**: Cuentas, transferencias, ranking
 - **Sistema de Apuestas**: Creación, participación, resolución
+- **Canal de counting**: Participación, Equipo, Actividad
 - **APIs Integradas**: Giphy, datos curiosos
 - **UI Interactiva**: Botones y modales
 
@@ -40,11 +41,13 @@
 ```
 AlexanderPanasBot/
 ├── Commands/                 # Comandos del bot
-│   ├── BettingCommand.cs     # Sistema de apuestas
+│   ├── BetCommand.cs     # Sistema de apuestas
 │   ├── EconomyCommand.cs     # Comandos económicos
 │   ├── FactApiCommand.cs     # Datos curiosos
 │   ├── GreetingCommand.cs    # UI interactiva
 │   ├── PingCommand.cs        # Health check
+│   ├── CountingCommand.cs    # Comandos para contar en equipo
+│   ├── AdminCommand.cs       # Comandos solo para admins
 │   └── SpamCommand.cs        # Utilidades
 │
 ├── Config/                   # Configuración
@@ -60,6 +63,7 @@ AlexanderPanasBot/
 │   ├── AccountResult.cs
 │   ├── BetEvent.cs
 │   ├── BetTicket.cs
+│   ├── CountingState.cs
 │   └── EconomyProfile.cs
 │
 ├── Repositories/             # Acceso a datos
@@ -76,10 +80,8 @@ AlexanderPanasBot/
 │   ├── IBettingService.cs
 │   ├── IEconomyService.cs
 │   ├── InteractionHandlingService.cs
+│   ├── CountingService.cs
 │   └── LoggingService.cs
-│
-├── images/                   # Recursos gráficos
-│   └── NPCAlexander.png
 │
 └── Program.cs               # Punto de entrada
 ```
