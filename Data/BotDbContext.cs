@@ -8,6 +8,7 @@ namespace Alexander.Data
         public DbSet<EconomyProfile> Perfiles { get; set; }
         public DbSet<BetEvent> BetEvents { get; set; }
         public DbSet<BetTicket> BetTickets { get; set; }
+        public DbSet<CountingState> CountingStates { get; set; }
         public BotDbContext(DbContextOptions<BotDbContext> options) : base(options)
         {
         }

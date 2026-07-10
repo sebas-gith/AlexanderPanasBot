@@ -37,6 +37,7 @@ namespace Alexander
                             .AddSingleton<IEconomyService, EconomyService>()
                             .AddTransient<IBettingRepository, BettingRepository>()
                             .AddTransient<IBettingService, BettingService>()
+                            .AddSingleton<CountingService>()
                             .AddHttpClient()
                             .AddSingleton<FactApiService>()
                             .AddSingleton<GhipyApiService>()
@@ -55,7 +56,9 @@ namespace Alexander
 
             var interactionHandler = services.GetRequiredService<InteractionHandlingService>();
             var mentionHandler = services.GetRequiredService<MentionHandlerService>();
+            var countingService = services.GetRequiredService<CountingService>();
 
+            countingService.Initialize();
             mentionHandler.Initialize();
             eventHandler.Initialize();
             await interactionHandler.InitializeAsync();
