@@ -63,7 +63,6 @@ namespace Alexander.Services
             if (oldState.VoiceChannel == null && newState.VoiceChannel != null)
             {
                 _voiceSessions[userId] = DateTime.UtcNow;
-                Console.WriteLine("Un usuario entro a un canal de voz");
             }
             else if (oldState.VoiceChannel != null && newState.VoiceChannel == null)
             {

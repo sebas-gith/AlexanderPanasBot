@@ -34,10 +34,13 @@ namespace Alexander
                             .AddDbContext<BotDbContext>(options =>
                                 options.UseSqlite("Data Source=economia.db"), ServiceLifetime.Transient)
                             .AddSingleton<IEconomyRepository, EconomyRepository>()
+                            .AddTransient<IRewardRepository, RewardRepository>()
+                            .AddTransient<RewardService>()
                             .AddSingleton<IEconomyService, EconomyService>()
                             .AddTransient<IBettingRepository, BettingRepository>()
                             .AddTransient<IBettingService, BettingService>()
                             .AddSingleton<CountingService>()
+                            .AddSingleton<CarlBotMockingService>()
                             .AddHttpClient()
                             .AddSingleton<FactApiService>()
                             .AddSingleton<GhipyApiService>()
@@ -57,7 +60,10 @@ namespace Alexander
             var interactionHandler = services.GetRequiredService<InteractionHandlingService>();
             var mentionHandler = services.GetRequiredService<MentionHandlerService>();
             var countingService = services.GetRequiredService<CountingService>();
-
+            var carlMocking = services.GetRequiredService<CarlBotMockingService>();
+            
+            
+            carlMocking.Initialize();
             countingService.Initialize();
             mentionHandler.Initialize();
             eventHandler.Initialize();

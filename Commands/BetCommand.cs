@@ -95,12 +95,12 @@ namespace Alexander.Commands
         }
 
 
-        [ComponentInteraction("bet:*:*", ignoreGroupNames: true)]
-        public async Task HandleBetButtonAsync(string side, string eventIdStr)
+        [ComponentInteraction("bet:favor:*", ignoreGroupNames: true)]
+        public async Task HandleBetFavorAsync(string eventIdStr)
         {
             var modal = new ModalBuilder()
-                .WithTitle("Ingresa tu Apuesta")
-                .WithCustomId($"modal:{side}:{eventIdStr}")
+                .WithTitle("Ingresa tu Apuesta - A FAVOR")
+                .WithCustomId($"modal:favor:{eventIdStr}")
                 .AddTextInput(
                     label: "¿Cuántos SmashCoins vas a apostar?",
                     customId: "amount_input",
@@ -112,7 +112,26 @@ namespace Alexander.Commands
 
             await RespondWithModalAsync(modal);
         }
-        
+
+        [ComponentInteraction("bet:against:*", ignoreGroupNames: true)]
+        public async Task HandleBetAgainstAsync(string eventIdStr)
+        {
+            var modal = new ModalBuilder()
+                .WithTitle("Ingresa tu Apuesta - EN CONTRA")
+                .WithCustomId($"modal:against:{eventIdStr}")
+                .AddTextInput(
+                    label: "¿Cuántos SmashCoins vas a apostar?",
+                    customId: "amount_input",
+                    placeholder: "Ej. 100",
+                    minLength: 1,
+                    maxLength: 6,
+                    required: true)
+                .Build();
+
+            await RespondWithModalAsync(modal);
+        }
+
+
         [ComponentInteraction("bet:lock:*", ignoreGroupNames: true)]
         public async Task HandleLockEventAsync(string eventIdStr)
         {
